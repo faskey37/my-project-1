@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Members Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* Moving Gradient Background */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* Center content horizontally */
+            height: 100vh;
+            overflow: auto;
+            /* Enable scroll */
+            background: linear-gradient(45deg, #d3d3d3, #ffffff, #808080);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s ease infinite;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        h1 {
+            text-align: center;
+            /* Center heading text */
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            /* Center the container content */
+            width: 100%;
+            /* Full width for responsiveness */
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 300px;
+            margin: 20px;
+            text-align: center;
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .card-content {
+            padding: 15px;
+            flex-grow: 1;
+        }
+
+        .title {
+            color: grey;
+            font-size: 18px;
+        }
+
+        button {
+            border: none;
+            outline: 0;
+            display: inline-block;
+            padding: 10px;
+            color: white;
+            background-color: #000;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+            border-radius: 0 0 10px 10px;
+            text-decoration: none;
+            /* Ensure text is not underlined */
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 22px;
+            color: black;
+        }
+
+        button:hover,
+        a:hover {
+            opacity: 0.7;
+        }
+
+        .social-media {
+            margin: 20px 0;
+        }
+
+        .social-media a {
+            margin: 0 10px;
+        }
+
+        @media screen and (min-width: 600px) {
+            .card {
+                flex: 1 1 calc(50% - 40px);
+            }
+        }
+
+        @media screen and (max-width: 599px) {
+            body {
+                padding: 10px;
+            }
+
+            .card {
+                flex: 1 1 100%;
+                margin: 10px 0;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .card-content {
+                padding: 10px;
+            }
+
+            button {
+                padding: 8px;
+                font-size: 16px;
+            }
+
+            a {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Meet Our Team</h1>
+    <div class="container" id="membersContainer">
+        <!-- Member cards will be dynamically inserted here -->
+    </div>
+
+    <script>
+        // Member data
+        const members = [
+            {
+                name: 'M. L. Hayat',
+                title: 'Designer, Coder & Founder',
+                university: 'RTMNU, Anjuman collage',
+                imgSrc: 'https://media.licdn.com/dms/image/v2/D4E03AQEhGtxtYk2PRQ/profile-displayphoto-shrink_200_200/B4EZOLNbC9GYAc-/0/1733207376142?e=2147483647&v=beta&t=WNFvv33VxU96eviMoEg0hJGspXEtzYghJDQVh9m0loM',
+                social: {
+                    linkedin: 'https://in.linkedin.com/in/muhammad-laeeque-hayat',
+                    instagram: 'https://www.instagram.com/laeequehayat/profilecard/?igsh=N3N0aTA3NHkwbXB5',
+                    website: 'https://www.laeeque.hayat.com/profile'
+                },
+                contactLink: 'mailto:mjacob09@myyahoo.com' // Add your contact link here
+            },
+            {
+                name: 'Tauqeer Ahmad Khan',
+                title: 'Designer & Coder',
+                university: 'RTMNU, Anjuman collage',
+                imgSrc: 'https://media.licdn.com/dms/image/v2/D5603AQG94I2IlZ3AfA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1732970193489?e=2147483647&v=beta&t=i2B-9V2m3wA8kC1EwBgrYEMBcpsw0MeXS8LAVWjKuI4',
+                social: {
+                    linkedin: 'https://www.linkedin.com/in/tauqeer-khan-64249a32b?',
+                    instagram: 'https://www.instagram.com/faskey_37?igsh=bzl0OWpiNDUyZGEw',
+                    website: 'https://khantauqeer272.wixsite.com/learn-quran'
+                },
+                contactLink: 'mailto:khantauqeer272@gmail.com"' // Add your contact link here
+            },
+
+
+            {
+                name: 'Zeeshan Khan',
+                title: 'Community member & content provider',
+                university: 'RTMNU, Anjuman collage',
+                imgSrc: '',
+                social: {
+                    linkedin: '',
+                    instagram: '',
+                    website: ''
+                },
+                contactLink: 'mailto:khantauqeer272@gmail.com"' // Add your contact link here
+            },
+
+
+
+            {
+                name: 'Izhan Sheikh',
+                title: 'Community member & content provider',
+                university: 'RTMNU, Anjuman collage',
+                imgSrc: '',
+                social: {
+                    linkedin: '',
+                    instagram: '',
+                    website: ''
+                },
+                contactLink: 'mailto:khantauqeer272@gmail.com"' // Add your contact link here
+            },
+
+
+            {
+                name: 'Mohammed Abuzar',
+                title: 'Manager',
+                university: 'RTMNU, Anjuman collage',
+                imgSrc: 'https://media.licdn.com/dms/image/v2/D4D03AQFly3lyMvF3qg/profile-displayphoto-shrink_200_200/B4DZNod4RZGUAY-/0/1732624484622?e=2147483647&v=beta&t=B-SYb8JRCAEP4OJg0J6SoIhYyVNl28VuTs7zidcL7Ok',
+                social: {
+                    linkedin: 'https://www.linkedin.com/in/md-abuzar-sheikh-6025741b3?',
+                    instagram: 'https://www.instagram.com/md.abuzar.2809?igsh=bDJ0YWZiaDU4NG42',
+                    website: '#'
+                },
+                contactLink: 'mailto:mohammadabuzar1711@gmail.com' // Add your contact link here
+            }
+        ];
+
+        // Function to create member card HTML
+        function createMemberCard(member) {
+            return `
+                <div class="card">
+                    <img src="${member.imgSrc}" alt="${member.name}">
+                    <div class="card-content">
+                        <h1>${member.name}</h1>
+                        <p class="title">${member.title}</p>
+                        <p>${member.university}</p>
+                        <div class="social-media">
+                            <a href="${member.social.linkedin}"><i class="fa fa-linkedin"></i></a>
+                            <a href="${member.social.instagram}"><i class="fa fa-instagram"></i></a>
+                            <a href="${member.social.website}"><i class="fa fa-globe"></i></a>
+                        </div>
+                    </div>
+                    <p><a href="${member.contactLink}" class="contact-button"><button>Contact</button></a></p>
+                </div>
+            `;
+        }
+
+        // Insert member cards into the container
+        const membersContainer = document.getElementById('membersContainer');
+        members.forEach(member => {
+            membersContainer.innerHTML += createMemberCard(member);
+        });
+
+        // Contact member function (Optional if you need any additional handling)
+        function contactMember(name) {
+            alert(`Contact ${name}`);
+        }
+
+
+
+    </script>
+</body>
+
+</html>
